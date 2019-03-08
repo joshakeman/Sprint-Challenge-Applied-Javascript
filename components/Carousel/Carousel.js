@@ -14,14 +14,45 @@ class Carousel {
         this.rightButton.addEventListener('click', (e) => {
             this.clickRight();
         });
+
+        this.leftButton = document.querySelector('.left-button');
+        this.leftButton.addEventListener('click', (e) => {
+            this.clickLeft();
+        });
     }
     
     clickRight() {
         this.imgList.forEach( function(img) {
             img.style.display = 'none';
         });
-        this.currentIndex ++
+        
+        console.log(this.currentIndex);
+        if (this.currentIndex + 1 <this.imgList.length) {
+            this.currentIndex++;
+        } else {
+            this.currentIndex = this.currentIndex;
+        }
+        console.log(this.currentIndex);
+        console.log(this.currentIndex != undefined);
+
         this.imgList[this.currentIndex].style.display = 'block';
+    }
+
+    clickLeft() {
+        this.imgList.forEach( function(img) {
+            img.style.display = 'none';
+        });
+
+        console.log(this.currentIndex);
+        if (this.currentIndex > 0) {
+            this.currentIndex--
+        } else {
+            this.currentIndex = this.currentIndex;
+        }
+        console.log(this.currentIndex);
+
+        this.imgList[this.currentIndex].style.display = 'block';
+
     }
 }
 
